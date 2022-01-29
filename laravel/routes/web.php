@@ -29,21 +29,20 @@ Route::post('add-to-cart', [CartController::class, 'addToCart']);
 Route::post('update-cart', [CartController::class, 'addToCart']);
 
 Route::middleware(['auth'])->group(function() {
-    Route::get('/cart', [CartController::class, 'viewcart']);
+	Route::get('/cart', [CartController::class, 'viewcart']);
 });
 Route::middleware( ['auth', 'isAdmin'])->group( function() {
-    Route::get('/dashboard', 'Admin\FrontendController@index');
+	Route::get('/dashboard', 'Admin\FrontendController@index');
 
 
-    Route::get('/produse', 'Admin\Tables\ProduseController@index');
-    Route::get('/produse/create', 'Admin\Tables\ProduseController@create');
-    Route::post('adauga-produs', 'Admin\Tables\ProduseController@adauga');
+	Route::get('/produse', 'Admin\Tables\ProduseController@index');
+	Route::get('/produse/create', 'Admin\Tables\ProduseController@create');
+	Route::post('adauga-produs', 'Admin\Tables\ProduseController@adauga');
 
-    Route::get('produse/edit-prod/{id}', [ProduseController::class, 'edit']);
-    Route::put( 'modifica-produs/{id}', [ProduseController::class, 'modifica']);
-    Route::get( 'produse/sterge-produs/{id}', [ProduseController::class, 'sterge']);
+	Route::get('produse/edit-prod/{id}', [ProduseController::class, 'edit']);
+	Route::put( 'modifica-produs/{id}', [ProduseController::class, 'modifica']);
+	Route::get( 'produse/sterge-produs/{id}', [ProduseController::class, 'sterge']);
 
-    Route::get('/clienti', 'Admin\Tables\ClientiController@index');
+	Route::get('/clienti', 'Admin\Tables\ClientiController@index');
 
 });
-
